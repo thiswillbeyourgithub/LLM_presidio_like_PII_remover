@@ -1,0 +1,135 @@
+[
+  {
+    "supported_language": "en",
+    "supported_entity": "FRENCH_TITLE_PERSON",
+    "patterns": [
+      {
+        "name": "mme_pattern",
+        "regex": "(?i)\\bMme\\.?\\s+[A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+(?:[\\s-][A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+)*",
+        "score": 0.9
+      },
+      {
+        "name": "mlle_pattern",
+        "regex": "(?i)\\bMlle\\.?\\s+[A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+(?:[\\s-][A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+)*",
+        "score": 0.9
+      },
+      {
+        "name": "monsieur_m_dot_pattern",
+        "regex": "(?i)\\bM\\.\\s+[A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+(?:[\\s-][A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+)*",
+        "score": 0.9
+      },
+      {
+        "name": "m_bare_pattern",
+        "regex": "\\bM\\s+[A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+(?:[\\s-][A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+)*",
+        "score": 0.85
+      },
+      {
+        "name": "mr_pattern",
+        "regex": "(?i)\\bMr\\.?\\s+[A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+(?:[\\s-][A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+)*",
+        "score": 0.9
+      },
+      {
+        "name": "mrs_pattern",
+        "regex": "(?i)\\bMrs\\.?\\s+[A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+(?:[\\s-][A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+)*",
+        "score": 0.9
+      },
+      {
+        "name": "dr_pattern",
+        "regex": "(?i)\\bDr\\.?\\s+[A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+(?:[\\s-][A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+)*",
+        "score": 0.9
+      },
+      {
+        "name": "mgr_msgr_pattern",
+        "regex": "(?i)\\b(?:Mgr|Msgr)\\.?\\s+[A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+(?:[\\s-][A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+)*",
+        "score": 0.9
+      },
+      {
+        "name": "mm_messieurs_pattern",
+        "regex": "(?i)\\b(?:MM\\.|Messieurs)\\s+[A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+(?:[\\s-][A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+)*",
+        "score": 0.9
+      },
+      {
+        "name": "mes_maitres_pattern",
+        "regex": "(?i)\\b(?:Mes|Maîtres|Maitres)\\.?\\s+[A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+(?:[\\s-][A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+)*",
+        "score": 0.9
+      },
+      {
+        "name": "madame_monsieur_full_pattern",
+        "regex": "(?i)\\b(?:Madame|Monsieur|Mademoiselle|Monseigneur)\\s+[A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+(?:[\\s-][A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+)*",
+        "score": 0.95
+      }
+    ]
+  },
+  {
+    "supported_language": "en",
+    "supported_entity": "PERSON",
+    "patterns": [
+      {
+        "name": "patient_label_name",
+        "regex": "(?i)\\b(?:Patient|Patiente)\\s*[:.]?\\s+[A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+(?:[\\s\\-][A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+)*",
+        "score": 0.9
+      },
+      {
+        "name": "consecutive_capitalized_words",
+        "regex": "(?<!\\d)\\b[A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+(?:[\\s\\-][A-ZÀ-Ÿ](?:'[A-ZÀ-Ÿ])?[a-zà-ÿ]+)+\\b(?!\\d)",
+        "score": 0.5
+      },
+      {
+        "name": "exotic_char_name_sequence",
+        "regex": "(?<!\\d)\\b(?=[a-zA-Z\u00c0-\u00ff\u0100-\u024f\u1e00-\u1eff\\s]*[\u0100-\u024f\u1e00-\u1eff])[a-zA-Z\u00c0-\u00ff\u0100-\u024f\u1e00-\u1eff]+(?:\\s+[a-zA-Z\u00c0-\u00ff\u0100-\u024f\u1e00-\u1eff]+){1,}\\b(?!\\d)",
+        "score": 0.4
+      }
+    ]
+  },
+  {
+    "supported_language": "en",
+    "supported_entity": "PHONE_NUMBER_2",
+    "patterns": [
+      {
+        "name": "phone_10digits_contiguous",
+        "regex": "(?<![\\d])\\d{10}(?![\\d])",
+        "score": 0.7
+      },
+      {
+        "name": "phone_10digits_grouped_by_2",
+        "regex": "(?<![\\d])\\d{2}[\\s.\\-/]\\d{2}[\\s.\\-/]\\d{2}[\\s.\\-/]\\d{2}[\\s.\\-/]\\d{2}(?![\\d])",
+        "score": 0.9
+      },
+      {
+        "name": "phone_10digits_grouped_by_3_then_2",
+        "regex": "(?<![\\d])\\d{3}[\\s.\\-/]\\d{3}[\\s.\\-/]\\d{2}[\\s.\\-/]\\d{2}(?![\\d])",
+        "score": 0.85
+      },
+      {
+        "name": "phone_with_plus_prefix_contiguous",
+        "regex": "(?<![\\d])\\+\\d{11}(?![\\d])",
+        "score": 0.85
+      },
+      {
+        "name": "phone_with_plus_prefix_grouped_by_2",
+        "regex": "(?<![\\d])\\+\\d{1,3}[\\s.\\-/]\\d{2}[\\s.\\-/]\\d{2}[\\s.\\-/]\\d{2}[\\s.\\-/]\\d{2}[\\s.\\-/]?\\d{0,2}(?![\\d])",
+        "score": 0.9
+      },
+      {
+        "name": "phone_with_plus_prefix_grouped_by_3",
+        "regex": "(?<![\\d])\\+\\d{1,3}[\\s.\\-/]\\d{3}[\\s.\\-/]\\d{3}[\\s.\\-/]\\d{2,4}(?![\\d])",
+        "score": 0.85
+      },
+      {
+        "name": "phone_with_plus_prefix_1digit_then_2s",
+        "regex": "(?<![\\d])\\+\\d{1,3}[\\s.\\-/]\\d[\\s.\\-/]\\d{2}[\\s.\\-/]\\d{2}[\\s.\\-/]\\d{2}[\\s.\\-/]\\d{2}(?![\\d])",
+        "score": 0.9
+      },
+      {
+        "name": "phone_with_plus_prefix_mixed",
+        "regex": "(?<![\\d])\\+\\d{1,3}[\\s.\\-/]\\d{1,4}[\\s.\\-/]\\d{2,4}[\\s.\\-/]\\d{2,4}[\\s.\\-/]\\d{2,4}(?![\\d])",
+        "score": 0.7
+      },
+      {
+        "name": "phone_10digits_grouped_by_2_3_mix",
+        "regex": "(?<![\\d])\\d{2,3}[\\s.\\-/]\\d{2,3}[\\s.\\-/]\\d{2,3}[\\s.\\-/]\\d{2,3}(?:[\\s.\\-/]\\d{2,3})?(?![\\d])",
+        "score": 0.6
+      }
+    ]
+  }
+]

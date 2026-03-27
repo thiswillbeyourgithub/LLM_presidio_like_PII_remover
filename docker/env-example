@@ -1,0 +1,93 @@
+# ============================================================================
+# LLM Anonymizer - Configuration
+# ============================================================================
+# Copy this file to .env and adjust values as needed.
+# All values here can also be passed as CLI arguments to app.py (CLI takes
+# precedence over env vars).
+# ============================================================================
+
+# --------------------------------------------------------------------------
+# Ollama LLM settings
+# --------------------------------------------------------------------------
+
+# Model name to use for PII detection (required)
+# Examples: qwen3:8b, llama3.1:8b, mistral:7b
+MODEL=qwen3:8b
+
+# Ollama endpoint URL including scheme and port (required)
+# If running via docker-compose, use the service name "ollama"
+BASE_URL=http://ollama:11434
+
+# LLM backend API: "ollama" or "vllm" (default: ollama)
+# When using vllm, BASE_URL should point to the vLLM server (e.g. http://vllm:8000)
+# and /v1 is appended automatically.
+API=ollama
+
+# --------------------------------------------------------------------------
+# Chunking / Embedding
+# --------------------------------------------------------------------------
+
+# Embedding model used by chonkie's SemanticChunker to split text into
+# semantically meaningful units before sending to the LLM.
+EMBEDDING_MODEL=minishlab/potion-multilingual-128M
+
+# Target chunk size in tokens (GPT-4o tokenizer via tiktoken).
+# Smaller = more LLM calls but better for models with limited context.
+# Overlap between chunks is 15% of this value.
+MATCH_TKN_LEN=256
+
+# --------------------------------------------------------------------------
+# Concurrency
+# --------------------------------------------------------------------------
+
+# Max number of concurrent requests sent to Ollama at once.
+# Higher = faster batch processing, but requires more Ollama capacity.
+N_PARALLEL_REQUESTS=1
+
+# --------------------------------------------------------------------------
+# LLM behavior
+# --------------------------------------------------------------------------
+
+# Whether the model produces <think>...</think> XML blocks that should be
+# stripped before parsing the JSON structured output.
+# Set to false for non-thinking models.
+THINKING_MODEL=true
+
+# Pass think=True/False to Ollama chat calls. Leave empty/unset to not pass
+# the argument at all (default). Set to "true" or "false" to explicitly control
+# Ollama's thinking mode. Useful workaround for Ollama bugs where think breaks
+# structured output (see https://github.com/ollama/ollama/issues/15260).
+# THINK=
+
+# Override the built-in system prompt. Leave empty to use the default.
+# The default prompt is English-only but works with multilingual models.
+CUSTOM_SYSTEM_PROMPT=
+
+# --------------------------------------------------------------------------
+# Entity schemas
+# --------------------------------------------------------------------------
+
+# Path to a .py file containing Pydantic BaseModel subclasses, one per
+# entity type to detect. Each class = one LLM call per chunk. (required)
+# See entities_example.py for the expected format.
+PYDANTIC_FILE=entities.py
+
+# If true, re-import the pydantic file on every request (dev only).
+AUTO_RELOAD=false
+
+# --------------------------------------------------------------------------
+# Regex pre-processing
+# --------------------------------------------------------------------------
+
+# Path to a JSON file with Presidio-style PatternRecognizer definitions.
+# These regex patterns are applied BEFORE the LLM step.
+# Leave empty to skip regex pre-processing.
+DEFAULT_RECOGNIZER_JSON=
+
+# --------------------------------------------------------------------------
+# Logging
+# --------------------------------------------------------------------------
+
+# INFO  = step progression, request lifecycle (no PII values logged)
+# DEBUG = all of INFO + actual PII values + per-step and aggregate timing
+LOG_LEVEL=INFO

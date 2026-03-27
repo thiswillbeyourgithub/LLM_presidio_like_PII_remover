@@ -1,0 +1,14 @@
+services:
+  anonymizer:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      # Mount entity schemas and recognizer JSON if needed
+      - ../entities_example.py:/app/entities.py:ro
+      - ../custom_presidio_recognizers.json:/app/recognizers.json:ro
+    restart: unless-stopped
