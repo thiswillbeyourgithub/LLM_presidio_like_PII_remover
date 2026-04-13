@@ -1,5 +1,6 @@
 services:
-  anonymizer:
+  llm_pii_remover:
+    container_name: llm_pii_remover
     build:
       context: ..
       dockerfile: docker/Dockerfile
