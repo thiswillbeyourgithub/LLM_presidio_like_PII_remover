@@ -1,6 +1,6 @@
-# LLM Anonymizer
+# LLM Presidio Like PII Remover
 
-A Presidio-compatible PII anonymization API powered by local Ollama LLMs. Built with FastAPI and Claude Code.
+A Presidio-compatible PII anonymization API powered by local Ollama/vllm LLMs. Built with FastAPI and Claude Code.
 
 **License:** AGPLv3
 
