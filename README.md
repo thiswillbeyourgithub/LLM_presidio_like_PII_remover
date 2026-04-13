@@ -108,6 +108,10 @@ The `/analyze` endpoint supports `score_threshold` (minimum confidence) and `ent
 
 Use `--api vllm` to connect to a vLLM server via its OpenAI-compatible API instead of Ollama. Structured output uses `guided_json`.
 
+## Related projects
+
+- [LLM_presidio_like_PII_remover](https://github.com/thiswillbeyourgithub/LLM_presidio_like_PII_remover) — A Python-based test runner for benchmarking local models against this API: assesses Microsoft Presidio's PII detection on French medical text, with detailed analysis and metrics to see how performance scales with the number of model parameters.
+
 ## How it works
 
 1. **Regex pre-processing** (optional) — Presidio-compatible pattern recognizers run first
