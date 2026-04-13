@@ -1,6 +1,6 @@
-# LLM Presidio Like PII Remover
+# LLM Presidio-Like PII Remover — Detect and anonymize personal data in text using local AI
 
-A Presidio-compatible PII anonymization API powered by local Ollama/vllm LLMs. Built with FastAPI and Claude Code.
+A Presidio-compatible PII (Personally Identifiable Information) anonymization API powered by local Ollama/vllm LLMs (Large Language Models). Built with FastAPI and Claude Code.
 
 **License:** AGPLv3
 
